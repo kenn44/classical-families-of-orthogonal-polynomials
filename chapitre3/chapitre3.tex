@@ -1,0 +1,63 @@
+\chapter{Quelques domaines d'application des polynômes orthogonaux}
+
+\section{Quadrature de Gauss en analyse numérique}
+Dans le domaine mathématique de l'analyse numérique, les méthodes de quadrature sont les approximations de la valeur numérique d'une intégrale. En général, on remplace le calcul de l'intégrale par une somme pondérées prise en un certain nombre de points du domaine d'intégration. La méthode de quadrature de Gauss est une méthode de quadrature avec une très faible marge d'erreur pour un polynôme de degré $2n-1$.
+\bthm
+$ $\\
+Soit $I\subset\R, \ (P_n)_{n\geqslant 1}$ une famille de polynômes orthogonaux par rapport à la mesure $d\lambda(x)$ associé à la densité $w$, avec $w:I\longrightarrow \R$. Si $x_1< x_2< \cdots < x_n$ sont les racines de $P_n(x)$ alors il existe une suite de réels $a_1,a_2, \dots ,a_n$ tels que: $$\int_I{f(x)d\lambda(x)}=\sum\limits_{k=1}^n a_k f(x_k)$$ où $f(x)$ est une fonction polynomiale de degré $2n-1$.
+\ethm
+
+\brmq
+$ $
+\begin{itemize}
+\item Le choix de la famille $(P_n)_{n \geq 1}$ dépend de l'intervalle d'intégration et de la fonction densité $w$ (Annexe A).
+\item Lorsque $I=[a,b]$, on peut se ramener à une intégrale sur $[-1,1]$ en faisant le changement de variable $x=\dfrac{(b-a)t+(a+b)}{2}$.
+\end{itemize}
+\ermq
+
+\bprop
+$ $\\
+Les nombres $a_k$ sont appelés nombres de Christoffel et vérifient les propriétés suivantes:
+\begin{enumerate}
+\item $\forall k=1,\dots,n, a_k > 0$
+\item $\displaystyle{\sum\limits_{k=1}^n a_k = \int_a^b{d\lambda(x)}}$
+\item $a_k=\dfrac{1}{K_n(x_k,x_k)}$.
+\end{enumerate}
+\eprop
+
+\bex
+$ $\\
+On cherche à déterminer l'approximation numérique de $\displaystyle{\int_{-1}^1{(x+1)^2dx}}$.
+\\On veut intégrer un polynôme de degré $2$, deux points suffisent. Dans notre cas $w(x)=1$ et $I=[-1,1]$, on utilisera donc les polynômes de Legendre.
+\begin{center}
+\begin{tabular}{cccc}
+n & $a_n$ & Racines & $P_n$ \\
+$1$ & $2$ & $0$ & $x$ \\
+$2$ & $1;1$ & $-\dfrac{1}{\sqrt{3}},\dfrac{1}{\sqrt{3}}$ & $\dfrac{3x^2-1}{2}$\\
+$3$ & $\dfrac{5}{9};\dfrac{8}{9};\dfrac{5}{9}$ & $-\sqrt{\dfrac{3}{5}};0;\sqrt{\dfrac{3}{5}}$ & $\dfrac{5x^3-3x}{2}$\\
+\end{tabular}
+\end{center}
+On obtient donc:$$\int_{-1}^1{(x+1)^2dx}=1\left(\dfrac{1}{\sqrt{3}}+1\right)^2+1\left(-\dfrac{1}{\sqrt{3}}+1\right)^2=\dfrac{8}{3}.$$
+On peut facilement vérifier ce résultat:
+$$\int_{-1}^1{(x+1)^2dx}=\left[\dfrac{(x+1)^3}{3}\right]^1_{-1}=\dfrac{8}{3}$$
+\eex
+
+\section{Oscillateur harmonique}
+L'oscillateur harmonique classique est un corps de masse $m$ attaché a un ressort linéaire. L'importance de ce système vient du fait qu'il approxime assez généralement tout système proche d'un état d'équilibre stable, par exemple le cas du pendule simple. Le potentiel associé à un oscillateur harmonique est quadratique et de la forme $V(x)=cx^2$ où $c$ est une constante.
+\\Considérons un potentiel $U(x)$ arbitraire mais possédant un minimum en $x=x_0$. En développant $U(x)$ au voisinage de $x_0$ on obtient: $$U(x)=U(x_0)+(x-x_0)U'(x_0)+\frac{1}{2}(x-x_0)^2U''(x_0)+O((x-x_0)^3).$$
+$U$ atteignant son minimum en $x_0$, on a $U'(x_0)=0$ et $U''(x_0)\geqslant 0$. En redéfinissant le potentiel de façon à ce que $U(x_0)=0$, on obtient $$U(x)=\frac{1}{2}(x-x_0)^2U''(x_0)+O((x-x_0)^3).$$
+Si les mouvements de la particule autour de $x_0$ sont suffisamment petits pour que le terme $O((x-x_0)^3)$ soit négligeable, nous pouvons considérer que nous avons affaire à un oscillateur harmonique. C'est de cette façon que sont étudiés les vibrations des atomes d'une molécule autour de leur position d'équilibre ou encore des ions dans un réseau cristallin.
+\\Introduisons donc l'équation de Schrödinger qui, en mécanique quantique, régit le comportement des particules ayant une certaine masse $m$ placée dans un certain potentiel $V$. Rappelons également que $h$ est la constante de Planck.
+$$ih\frac{\partial\psi(x,t)}{\partial t}= -\frac{h^2}{2m} \nabla^2 \psi(x,t)+V(x,t)\psi(x,t).$$
+Dans la suite nous travaillerons en dimension $1$ avec $\displaystyle{V(x)=\frac{h^2}{2mx^2}}$, i.e un oscillateur harmonique indépendant du temps avec une constante de rappel bien choisie. L'équation devient: $$ih\frac{\partial}{\partial t} \psi(x,t)= -\frac{h^2}{2m}\frac{\partial^2}{\partial x^2} \psi(x,t)+V(x)\psi(x,t).$$
+\\Utilisons la méthode de séparation de variable et posons $\psi(x,t)=A(x)B(t)$. L'équation devient:
+$$\frac{ih}{B(t)}\frac{dB(t)}{dt}=\frac{1}{A(x)}\left[ \frac{-h^2}{2m} \frac{d^2 A(x)}{dx^2}\right]+V(x).$$
+En utilisant $E=hw$ comme constante de séparation on obtient:
+
+$$ih\frac{dB(t)}{dt} = hwB(t) \Longrightarrow B(t)=ae^{-iwt}$$
+$$\frac{-h^2}{2m}\frac{d^2A(x)}{dx^2}+V(x)A(x)= hwA(x)$$
+
+Réécrivons la seconde équation en insérant le potentiel $V$ choisi, on a: $$\frac{d^2A(x)}{dx^2}+\left(\frac{2mw}{h}-x^2\right) A(x)=0.$$ Posons $\frac{2mw}{h}=2n+1$. Nous obtenons $$\frac{d^2A}{dx^2}+(2n+1-x^2)A=0.$$
+En posant maintenant $u=\exp\left(\dfrac{x^2}{2}\right)A(x)$, l'équation précédente devient 
+$$\frac{d^2u}{dx^2}-2x\frac{du}{dx}+2nu=0$$
+qui n'est rien d'autre que l'équation différentielle dont les solutions utiles sont les polynômes de Hermite.

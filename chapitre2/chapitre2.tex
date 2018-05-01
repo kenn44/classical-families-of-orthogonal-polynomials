@@ -1,0 +1,354 @@
+\chapter{\'{E}tude de quelques familles classiques de polynômes orthogonaux}
+
+Certaines familles de polynômes orthogonaux revêtent une importance particulière puisqu'elles apparaissent dans de nombreuses applications. Ces polynômes vérifient la relation de récurrence (théorème 1.2.2) et ils ont, de plus, en commun des propriétés que nous allons mettre en évidence. Ils sont tous solutions d'équations différentielles linéaires du second ordre.
+\\On considère un intervalle $I = [a, b]$ de $\mathbb{R}$ , une mesure $d\lambda (x)$ dont la fonction densité $w$ est continue et strictement positive sur $I$ telle que: $\displaystyle{\int_I{|x|^n w(x)\ dx} < +\infty, \forall n \in \N}$, on se place sur $L^2(I,w)$.
+
+\section{Formule de Rodrigues}
+La formule de Rodrigues permet de calculer directement une suite de polynômes orthogonaux ${(p_n)}_n, n\in\mathbb{N}$ , dans le cas des polynômes orthogonaux classiques en fonction du poids $w$ et d'un polynôme $Q$.
+\\Elle permet en outre, le calcul explicite des formules de récurrence et de retrouver les équations différentielles associées a chaque polynôme.
+
+\bthm
+$ $\\Soit $(e_n)_{ n \in \N } $ une suite de $\R$ (on la définit plus bas), $(\phi_n)_{ n \in \N }$ une famille d'applications de $]a, b[$ dans $\mathbb{R}$ qui vérifie :
+\begin{enumerate}
+\item $ (\phi_n)$ est de classe $C^n$ sur $]a, b[$
+\item $ {\phi_n}^{(k)} (a^+) = {\phi_n}^{(k)} (b^-) = 0$ pour $ 0 \leqslant k \leqslant n-1$
+\item $ T_n \equiv \frac{1}{ e_n w}{{\phi_n}^{(n)}}$ est un polynôme de degrés n.
+\end{enumerate}
+Alors $(T_n)_n$ est une suite orthogonale.
+La réciproque est vraie quand $w(x)$ est $C^\infty$.
+\ethm
+
+\begin{proof}
+$ $\\
+La preuve repose sur une application répétée de la formule d'intégration par parties dans le cas où tous les termes convergent et où les termes intégrés (termes entre crochets) apparaissant successivement sont tous nuls.
+\\Soit $P$ un polynôme de degrés $\leqslant n-1$, $(T_n)_n$ vérifiant 1), 2) et 3), il s'agit de s'assurer que la famille est orthogonale.
+\begin{align*}
+\int_{a}^{b}T_n(x)P(x)w(x)dx & = \int_{a}^{b}{\phi_n}^{(n)}(x)P(x)dx\\
+& = \int_{a}^{b}{\phi_n}^{(n-1)}(x)P'(x)dx\\
+& =\cdots\\
+& = (-1)^{n}\int_{a}^{b}\phi_n(x)P^{(n)}(x)dx\\
+& = 0
+\end{align*}
+Car $\text{deg}(P)<n$.
+\\Réciproquement, on pose $w(x)P_{n}(x)={\phi_{n}}^{(n)}(x)$ alors $\displaystyle{\int_{a}^{b}q_{n-1}(x){\phi_{n}}^{(n)}(x)dx = 0}$ avec $q_{n-1}$ un polynôme de degrés au plus $n-1$ quelconque.
+\\Par intégrations par parties successives, on obtient:
+\\$\left[q_{n-1}(x){\phi_{n}}^{(n)}(x) - q_{n-1}(x){\phi_{n}}^{(n)}(x) +...+ q_{n-1}(x){\phi_{n}}^{(n)}(x)\right]_a^b = 0$.
+\\Ceci étant vrai pour tout polynôme de degrés $< n$ on en déduit que $ {\phi_n}^{(k)} (a^+) = {\phi_n}^{(k)} (b^-) = 0$ pour $ 0 \leqslant k \leqslant n-1$
+\end{proof}
+
+\section{Définition des familles classiques}
+On considère une famille de polynômes orthogonaux donnée par une formule de Rodrigues: \[P_n(x)=\frac{1}{e_n w(x)} \frac{d^n}{dx^n}(w(x) [Q(x)]^n)\]
+\\$Q$ est un polynôme en $x$ de degrés $k$.
+\\Les nombres $e_n$ dépendent de la normalisation.
+ 
+\brmq
+$ $\\On note $P_n(x)=k_{n}x^{n} + \cdots$. Un choix systématique des $k_{n}$ est appelé normalisation de la famille de polynômes orthogonaux. On peut choisir tous les polynômes unitaires $k_{n}:=1$. On peut aussi normer la suite, en remplaçant $k_{n}$ par $ \dfrac{k_{n}}{\|P_{n}\|}$. Dans le cas des polynômes orthogonaux classiques, d'autres normalisations se sont souvent imposées par exemple $P_{n}(1)=1$ pour les polynômes de Legendre. 
+\ermq
+Pour $n=1$:
+$$e_{1}P_{1}(x)= Q'+Q\dfrac{w'(x)}{w(x)}$$
+
+\paragraph{Polynômes de Hermite}
+$ $\\
+En considérant le degrés de $Q$, $k=0$, $Q$ est constante, par exemple $1$.\\$\dfrac{w'(x)}{w(x)}=e_{1}P_{1}(x)$ est une fonction linéaire en $x$ qu'on peut ramener a $\dfrac{w'(x)}{w(x)}=-2x$ par un changement de variable.
+\\Les polynômes issus de la formule de Rodrigues déterminée par : $$Q=1,\  w(x)=\exp(-x^{2})\, e_{n}$$ sont appelés polynômes de Hermite.
+
+\paragraph{Polynômes de Laguerre}
+$ $\\
+En considérant $k=1$ on se ramène a $\dfrac{w'(x)}{w(x)}=-1+\dfrac{a}{x}$, on s'intéresse au cas $a=0$
+\\Les polynômes issus de la formule de Rodrigues déterminée par : $$Q=x,\ w(x)=\exp(-x),\ e_{n}$$ sont appelés polynômes de Laguerre.
+\\$ $\\$ $\\$ $\\Supposons $k\geq 2$, on peut prendre $Q=\prod\limits_{i=1}^{k}{(x-a_{i})}$.
+\\Supposons les $ a_{i} $ distincts. On peut écrire $ \displaystyle{\dfrac{w'(x)}{w(x)}=\sum\limits_{i=0}^{k}{\dfrac{a_{i}}{x-a_{i}}} \Rightarrow w(x)= \prod\limits_{i=1}^{k}{(x-a_{i})^{a_{i}}}}$. Cela nous donne:
+$$P_{n}(x)=\dfrac{1}{e_{n}\prod\limits_{i=1}^k{(x-a_i)^{a_i}}}\dfrac{d^{n}}{dx^{n}}(\prod\limits_{i=1}^{k}{(x-a_{i})^{n+a_{i}}})$$
+\\On remarque que $ \forall k>2$, $P_2(x)$ n'est pas de degrés 2, $k=2$ est la seule valeur qui convient. 
+\\Supposons donc $k=2$, le cas ou $Q$ admet une racine double conduit a une absurdité. Le seul cas possible est donc $k=2$ et $a_{1}\neq a_{2}$.
+\\Par un changement de variable on peut se ramener a $a_{1}=-1, a_{2}=1$. Les polynômes issus de la formule de Rodrigues déterminée par: $$Q=1-x^{2},\ w(x)=(1-x)^{\alpha}(1+x)^{\beta},\ \alpha,\beta > -1,\ e_{n}$$
+sont appelés:
+
+\paragraph{Polynômes de Tchebychev}
+$ $\\
+Pour $\alpha=\beta=-\dfrac{1}{2}$,\ $w(x)=\dfrac{1}{\sqrt{1-x^{2}}}$
+
+\paragraph{Polynômes de Legendre}
+$ $\\
+Pour $\alpha=\beta=0$,\ $w(x)=1$
+\\$ $\\$ $\\$ $\\On considère $k\in\lbrace0, 1, 2\rbrace$ dans la suite du mémoire.
+
+\section{Équations différentielles}
+\bthm
+$ $\\Soit $(P_{n})_{n\in\mathbb{N}}$ une famille de polynômes orthogonaux définie a l'aide de la formule de Rodrigues, alors $P_{n}(x)$ satisfait, pour $n\geqslant0$, une equation différentielle de la forme: $$A(x)y''+B(x)y'+\lambda_{n}y=0$$
+\ethm
+
+\begin{proof}
+$ $\\
+Posons $D=\dfrac{d}{dx}$, on rappelle la formule de Leibniz: $$(fg)^{(n)}=\sum_{k=0}^{n}C^k_n f^{(k)}g^{(n-k)}.$$
+D'une part, on a 
+\\$\displaystyle{D^{n+1}[QD(wQ^{n}]  =\sum_{k=0}^{n+1} C^k_{n+1}Q^{(k)}D^{n+1-k}[D(wQ^{n}]}$
+\\$ \phantom{11111111111}=C^0_{n+1} QD^{n+1}[D(wQ^{n})] + C^1_{n+1}Q'D^{n} [D(wQ^{n})] + C^2_{n+1} Q''D^{n-1}[D(wQ^{n})]$
+\\$ \phantom{1111111111111111111}\displaystyle{+ \sum_{k=3}^{n+1}C^k_{n+1} Q^{(k)}D^{n+1-k}[D(wQ^{n}]}$
+\\Or $ \displaystyle{Q^{(0)} = Q \text{ et } \sum_{k=3}^{n+1} C^k_{n+1} Q^{(k)} D^{n+1-k}[D(wQ^{n}]=0 \text{ car } Q^{(k)}=0 \text{ pour } k \geqslant 3 }$
+\\Par suite, $D^{n+1}[QD(wQ^{n}]= QD^{n+2}(wQ^{n})+(n+1)Q'D^{n+1}(wQ^{n})+\dfrac{n(n+1)}{2}Q''D^{n}(wQ^{n})$
+\\$ $\\D'après la formule de Rodrigues $D^{n}(wQ^{n})=e_{n}wP_{n}$, donc
+\\$D^{n+1}[QD(wQ^{n}]= e_{n}\left[QD^{(2)}(wP_{n})+(n+1)Q'D(wP_{n})+\dfrac{n(n+1)}{2}Q''(wP_{n})\right]$
+\\$ $\\D'autre part:
+\begin{align*}
+D^{n+1}[QD(wQ^{n}] & = D^{n+1}[Q(D(w)Q^{n}+nQ'Q^{n-1}w)]\\
+& = D^{n+1}[Q^{n}(QD(w)+nwQ')]\\
+& = D^{n+1}[Q^{n}(D(Qw)+(n-1)wQ')]
+\end{align*}
+
+D'après la formule de Rodrigues pour $n=1$, $D(Qw)=e_{1}wP_{1}$ alors
+\\$\phantom{11111}D^{n+1}[QD(wQ^{n}] = D^{n+1}[wQ^{n}(e_{1}P_{1}+(n-1)Q')]$
+\\$ $\\$\phantom{111111111} = C^0_{n+1} D^{n+1}(wQ^{n})(e_{1}P_{1} + (n-1)Q') + C^1_{n+1} D^{n}(wQ^{n})(e_{1}{P'}_{1}+(n-1)Q'')$
+\\$\phantom{1111111111111111} \displaystyle{+ \sum_{k=2}^{n+1}C^k_{n+1} D^{(n+1-k)}(wQ^{n})(e_{1}P_{1}+(n-1)Q')^{(k)}}$
+\\$\phantom{1111111} = D^{n+1}(wQ^{n})(e_{1}P_{1}+(n-1)Q')+(n+1)D^{n}(wQ^{n})(e_{1}{P'}_{1}+(n-1)Q'')$
+\\$ $\\car ${P_{1}}^{(k)}=0, \ Q^{(k+1)}=0 \ \forall k \geqslant 2$.
+\\$ $\\On utilise la formule de Rodrigues:
+\begin{align*}
+D^{n+1}[QD(wQ^{n}] & = e_{n}D(wP^{n})(e_{1}P_{1}+(n-1)Q')+(n+1)we_{n}P^{n}(e_{1}{P'}_{1}+(n-1)Q'')\\
+& = e_{n}[D(wP^{n})(e_{1}P_{1}+(n-1)Q')+(n+1)wP^{n}(e_{1}{P'}_{1}+(n-1)Q'')]
+\end{align*}
+On identifie ces deux valeurs de $D^{n+1}[QD(wQ^{n}]$:
+\\$QD^{(2)}(wP_{n})+(n+1)Q'D(wP_{n})+\dfrac{n(n+1)}{2}Q''(wP_{n}) = D(wP^{n})(e_{1}P_{1}+(n-1)Q')$
+\\$\phantom{111111111111111111111111111111111111111111111111}+(n+1)wP^{n}(e_{1}{P'}_{1}+(n-1)Q'')$
+\\$ $\\$\Leftrightarrow QD^{(2)}(wP_{n})+D(wP_{n})[(n+1)Q'-e_{1}P_{1}-(n-1)Q']$
+\\$\phantom{1111111111111111111}+(wP_{n})\left[\dfrac{n(n+1)}{2}Q''-(n+1)e_{1}{P'}_{1}-(n+1)(n-1)Q''\right] = 0$
+\\$\Leftrightarrow QD^{(2)}(wP_{n})+D(wP_{n})\left[(2Q'-e_{1}P_{1}]+(wP_{n})[-\dfrac{n^{2}+n+2}{2}Q''-(n+1)e_{1}{P'}_{1}\right] = 0$
+\\$ $\\$\Leftrightarrow Q(w''P_{n}+2w'{P'}_{n}+w{P''}_{n})+(w'P_{n}+w{P'}_{n})[(2Q'-e_{1}P_{1}]$
+\\$\phantom{1111111111111111111111111111}+(wP_{n})\left[-\dfrac{n^{2}+n+2}{2}Q''-(n+1)e_{1}{P'}_{1}\right] = 0$
+\\$\Leftrightarrow Qw{P''}_{n}+{P'}_{n}[2w'Q+w(2Q'-e_{1}P_{1})]$
+\\$\phantom{111111111111111111111}+P_{n}[Qw''+w'(2Q'-e_{1}P_{1})-w\dfrac{n^{2}+n+2}{2}Q''-w(n+1)e_{1}{P'}_{1}] = 0$
+\\$\Leftrightarrow Q{P''}_{n}+\dfrac{{P'}_{n}}{w}[2(wQ)'-we_{1}P_{1}]$
+\\$\phantom{11111111111}+\dfrac{P_{n}}{w}\left[(Qw)''-wQ''-w'e_{1}P_{1}-w\dfrac{n^{2}+n+2}{2}Q''-w(n+1)e_{1}{P'}_{1}\right] = 0$
+\\$\Leftrightarrow Q{P''}_{n}+\dfrac{{P'}_{n}}{w}[2(wQ)'-we_{1}P_{1}]$
+\\$\phantom{111111111111}+\dfrac{P_{n}}{w}\left[(e_{1}({P'}_{1}w+w'P_{1})-w'e_{1}P_{1}+w\dfrac{-n^{2}+n}{2}Q''-w(n+1)e_{1}{P'}_{1} \right] = 0$
+\\$\Leftrightarrow \ Q{P''}_{n}+e_{1}P_{1}{P'}_{n}+P_{n}\left[e_{1}{P'}_{1}+\dfrac{w}{w'}e_{1}P_{1}-\dfrac{w}{w'}e_{1}P_{1}+\dfrac{-n^{2}+n}{2}Q''-(n+1)e_{1}{P'}_{1}\right] = 0$
+\\$\Leftrightarrow \ \ \ Q{P''}_{n}+e_{1}P_{1}{P'}_{n}+P_{n}\left[\dfrac{-n^{2}+n}{2}Q''-n+e_{1}{P'}_{1}\right] = 0$
+\\$\Leftrightarrow Q{P''}_{n}+e_{1}P_{1}{P'}_{n}+P_{n}\left[-n(\dfrac{n-1}{2}Q''+e_{1}{P'}_{1})\right] = 0$
+$$A(x)=Q(x)$$
+$$B(x)=e_{1}P_{1}(x)$$
+$$\lambda_{n}=-n \left(\dfrac{n-1}{2}Q''+e_{1}k_{1}\right)$$
+\end{proof}
+
+\section{Fonctions génératrices}
+Les polynômes orthogonaux classiques peuvent être obtenus comme coefficients d'un développement en série entière d'une fonction génératrice.
+\bdfn
+$ $\\A une suite $(U_n)_{n\in\mathbb{N}}$, on associe les séries formelles:
+$$\sum_{n\in\mathbb{N}} U_n x^{n} \text{ et } \sum_{n\in\mathbb{N}}\dfrac{U_n}{n!} x^{n}$$
+\\La première est appelée série génératrice, la seconde série génératrice exponentielle.
+\edfn
+
+\section{Polynômes de Legendre}
+On rappelle que les polynômes de Legendre $P_{n}$ sont obtenus en considérant: \\$Q=1-t^{2}$, le poids $w(t)=1$, l'intervalle $I=[-1, 1]$ (délimité par les racines de $Q$). 
+\\Le procédé d'orthogonalisation de Gram-Schmidt donne : \\$u_{0}(t)=1, u_{1}(t)=t, u_{2}(t)=t^{2}-\dfrac{1}{3}, u_{3}(t)=t^{3}-\dfrac{3}{5}t$.
+\\La normalisation traditionnelle est $P_{n}(1)=1 $, soit : $P_{0}(t)=1, P_{1}(t)=t$
+\\$P_{2}(t)=\dfrac{1}{2}(3t^{2}-1), P_{3}(t)=\dfrac{1}{2}(5t^{3}-3t)$
+\\Notons $p_{n}(t):=\dfrac{d^{n}}{dt^{n}}(t^{2}-1)^{n}$. D'après la formule de Rodrigues : $P_{n}(t)=\dfrac{1}{2^{n}n!}p_{n}(t)$.
+
+\bprop
+Relation de récurrence
+\\La relation de récurrence pour les polynômes de Legendre est:
+$$(n+1)P_{n+1}(t)=(2n+1)tP_{n}(t)-nP_{n-1}(t).$$
+\eprop
+
+\begin{proof}
+$ $\\
+On pose $D=\dfrac{d}{dt}$. En appliquant la formule de Leibniz a $p_{n}(t):=\dfrac{d^{n}}{dt^{n}}(t^{2}-1)^{n}=D^{n}(t^{2}-1)^{n}$ on obtient:
+\begin{align*}
+p_{n}(t) & = D^{n}(t-1)^{n}(t+1)^{n}\\
+& = \sum\limits_{k=0}^{n} C^k_n \ D^{k}(t-1)^{n}D^{n-k}(t+1)^{n}\\
+& = \sum\limits_{k=0}^{n} C^k_n \ n(n-1)\cdots (n-k-1)n(n-1) \cdots (k+1)(t-1)^{n-k}(t+1)^k\\
+& = n!\sum\limits_{k=0}^{n}(C^k_n)^{2}(t-1)^{n-k}(t+1)^{k}\\
+P_{n}(t) & = \dfrac{1}{2^{n}}\sum\limits_{k=0}^{n}(C^k_n)^{2}(t-1)^{n-k}(t+1)^{k}
+\end{align*}
+On vérifie facilement que $\displaystyle{ C^n_{2n}=\sum\limits_{k=0}^{n}(C^k_n)^{2}}$. On en déduit que, pour $ n\in \N $, le coefficient de $ t^{n} $ dans $ P_{n}(x) $ est $ \displaystyle{2^{-n} C^{\ n}_{2n}}$.
+\\Par suite, on calcule aisément les coefficients de l'équation de récurrence (théorème 1.2.2)
+\end{proof}
+
+\bprop
+Équation différentielle
+\\Les polynômes $ P_{n} $ de Legendre sont solution de l'équation différentielle:
+$$(1-t^{2})y''-2ty'+n(n+1)y=0$$
+\eprop
+\begin{proof}
+$ $\\On calcule aisément les coefficients de l'équation différentielle (théorème 2.3.1)
+\end{proof}
+
+\bprop
+Fonction génératrice
+$$\sum\limits_{n=0}^{+\infty}L_n(t)x^n = (1-2tx+t^2)^{-\dfrac{1}{2}}$$
+\eprop
+\begin{proof}
+$ $\\Partons de la relation de récurrence décrivant les polynômes de Legendre, à savoir $$nP_n(t)=(2n-1)tP_{n-1}(t)-(n-1)P_{n-2}(t)$$
+Multiplions par $x^{n-1}$ et sommons sur les $n$:
+$$\sum\limits_{n=1}^{+\infty}nL_n(t)x^{n-1}=\sum\limits_{n=1}^{+\infty}(2n-1)tL_n(t)x^{n-1} - \sum\limits_{n=1}^{+\infty}(n-1)L_{n-2}(t)x^{n-1}$$
+Posons $$h(x):=\sum\limits_{n=0}^{+\infty}L_nx^{n} \Rightarrow h'(x):=\sum\limits_{n=0}^{+\infty}nL_nx^{n-1}$$
+Alors
+\begin{align*}
+h'(x) &= \sum\limits_{n=0}^{+\infty}(2n+1)tL_n(t)x^{n} - \sum\limits_{n=0}^{+\infty}(n+1)L_nx^{n+1}\\
+&= 2tx\sum\limits_{n=0}^{+\infty}nL_n(t)x^{n-1} + t\sum\limits_{n=0}^{+\infty}L_n(t)x^{n} - \sum\limits_{n=0}^{+\infty}nL_n(t)x^{n+1}-\sum\limits_{n=0}^{+\infty}L_n(t)x^{n+1}\\
+&=2txh'(x)+th(x)-x^{2}h'(x)-xh(x)
+\end{align*}
+Et donc
+\begin{align*}
+(t-x)h(x) &= (1-2tx+x^2)h'(x)\\
+\dfrac{h'(x)}{h(x)} &= \dfrac{t-x}{1-2tx+x^2}
+\end{align*}
+En intégrant, nous obtenons
+$$\ln (h(x))= -\dfrac{1}{2} \ln (1-2tx+x^2)$$
+D'où
+$$h(x)= (1-2tx+x^2)^{-\dfrac{1}{2}}$$
+\end{proof}
+
+\section{Polynômes de Laguerre}
+Considérons l'espace $L^2([0,+\infty[,e^{-x})$ des fonctions de carrés intégrable pour la mesure de densité $w=e^{-x}$ par la mesure de Lebesgue sur l'intervalle $[0,+\infty[$.
+\\Le procédé de Gram-Schmidt appliqué à cette famille fournit une base orthogonale de polynôme $l_n$ avec $\text{deg }l_n=n$.
+\\Les calculs de ce cas sont particulièrement simples et utilisent l'égalité $\displaystyle{\int_0^\infty x^n e^{-x} dx=n!}$.
+\\$ $\\Ainsi on trouve que: $l_0(x)=1,\ l_1(x)=x-1,\ l_2(x)=x^2-4x+2,\ l_3(x)= x^3-9x^2+18x-6$. Qui vérifient la relation:
+$$l_n(x)= (-1)^n e^x \dfrac{d^n}{dx^n}(x^n e^{-x})$$
+\\On obtient donc les polynômes de Laguerre $(L_n)_{n\in\N}$ normalisés par la relation $$L_n(x)=\frac{(-1)^n}{n!}l_n(x).$$
+Ils forment une base orthogonale de l'espace $L^2(]0,+\infty[,e^{-x}dx)$ et sont exprimé à l'aide de la formule de Rodrigues $$L_n(x)= \dfrac{e^x}{n!} \dfrac{d^n}{dx^n}(x^n e^{-x})$$.
+
+\bprop
+$ $\\La relation de récurrence pour les polynômes de Laguerre est:$$(n+1)L_{n+1}(x)-(2n+1)L_n(x)+nL_{n-1}(x)=xL_n(x)$$
+\eprop
+
+\bprop
+$ $\\Les polynômes de Laguerre vérifient l'équation différentielle du second ordre suivante:$$ xy''+(1-x)y'+ny=0$$.
+\eprop
+
+\begin{proof}
+$ $\\On calcule aisément les coefficients de l'équation différentielle (théorème 2.3.1)
+\end{proof}
+
+\section{Polynômes de Hermite}
+Nous avons vu que les polynômes de Hermite $ H_{n}(t) $ sont une famille de polynômes orthogonaux associés au poids $ w(t)=\exp(-t^{2}) $ sur la droite $ \R $.
+\\On a la formule de Rodrigues: $ H_{n}(t)=(-1)^{n}e^{t^{2}}\dfrac{d^{n}}{dt^{n}}e^{-t^{2}} $
+\\Les premiers polynômes de Hermite sont donc: $ H_{0}(t)=1 $, $ H_{1}(t)=2t $, $ H_{2}(t)=4t^{2}-2 $, $ H_{3}(t)=8t^{3}-12t $ et $ H_{4}(t)=16t^{4}-48t^{2}+12.$
+
+\bprop
+Norme.\\On a:
+$$\la H_{n},H_{m} \ra=\int_{-\infty}^{+\infty}H_{n}(t)H_{m}(t)e^{-t^{2}}dt=2^{n}n!\sqrt{\pi}\delta_{nm}$$
+\\$\delta_{nm}$ est le delta de Kroenecker, $\delta_{nm}=1$ si $n=m$ et $\delta_{nm}=0$ si $n \neq m$
+\eprop
+
+\begin{proof}
+$ $\\
+Supposons $n\geqslant m$, on a:
+$$\la H_{n},H_{m}\ra=\int_{-\infty}^{+\infty}H_{n}(t)H_{m}(t)e^{-t^{2}}dt=(-1)^{n}\int_{-\infty}^{+\infty}\dfrac{d^{n}}{dt^{n}}e^{-t^{2}}H_{m}(t)dt$$
+\\On applique la formule d'intégration par parties généralisée et on obtient
+\\$\displaystyle{\la H_{n},H_{m}\ra=\int_{-\infty}^{+\infty}e^{-t^{2}}(H_{m})^{(n)}(t)dt}$.
+\\Si $ n>m $, on retrouve $ \la H_{n},H_{m}\ra=0 $, et, si $ n=m $ on obtient $\displaystyle{ \|H_{n}\|^{2} = 2^{n}n!\int_{-\infty}^{+\infty}e^{-t^{2}}dt=2^{n}n!\sqrt{\pi} }$
+\end{proof}
+
+\bprop
+Fonction génératrice
+\\Soit $ G(t,z)=e^{2tz-z^{2}}$. Pour tout $ t\in \R $, $ z\rightarrow G(t,z) $ est une fonction entière, la série $ \displaystyle{\sum\limits_{n \in \N}H_{n}(t)\dfrac{z^{n}}{n!}} $ converge et on a:
+\begin{enumerate}
+\item $ \displaystyle{G(t,z)=\sum\limits_{n \in \N}H_{n}(t)\dfrac{z^{n}}{n!}}$
+\item $ \displaystyle{H_{n}(t) = \sum\limits_{k=0}^{n/2}n!\dfrac{(-1)^{k}}{k!}\dfrac{(2t)^{n-2k}}{(n-2k)!}}$
+\end{enumerate}
+\eprop
+
+\begin{proof}
+$ $\\
+Soit $ t \in \R $, la fonction $  z \longmapsto G(t,z)= e^{2tz}e^{-t^{2}} $ est le produit de deux fonctions entières, elle est donc entière.
+\\On remarque $ e^{-t^{2}}G(t,z)=e^{-(t-z)^{2}} $, la fonction du membre de gauche étant entière, elle est égale a la somme de Taylor a l'origine.
+\\Pour tout réel $ x $, $\dfrac{\partial^{n}}{\partial x^{n}}e^{-(t-z)^{2}}=e^{-(t-z)^{2}}H_{n}(t-x)$.
+\\Ainsi $ \displaystyle{e^{-t^{2}}G(t,z)=\sum\limits_{n=0}^{+\infty}e^{-t^{2}}H_{n}(t)\dfrac{z^{n}}{n!}}$ soit $\displaystyle{G(t,z)=\sum\limits_{n=0}^{+\infty}H_{n}(t)\dfrac{z^{n}}{n!}}$
+\\En faisant le produit des deux séries entières $\displaystyle{\sum\limits_{n=0}^{+\infty}\dfrac{(2t)^{n}z^{n}}{n!}}$ et $\displaystyle{\sum\limits_{n=0}^{+\infty}(-1)^{n}\dfrac{z^{2n}}{n!}}$, de rayon de convergence $ +\infty $ et de sommes respectives $ e^{2tz} $ et $ e^{z^{2}} $, on obtient:
+\\$ \displaystyle{G(t,z)=\sum\limits_{n=0}^{+\infty}\left(\sum\limits_{k=0}^{[n/2]}n!\dfrac{(-1)^{k}}{k!}\dfrac{(2t)^{n-2k}}{(n-2k)!})z^{n}\right)}$ et on en déduit (2).
+\end{proof}
+
+\bprop
+Relations de récurrence
+\begin{enumerate}
+\item $ H_{n+1}(t)-2tH_{n}(t)+2nH_{n-1}(t)=0$
+\item $ {H'}_{n}(t) = 2nH_{n-1}(t)$
+\end{enumerate}
+\eprop
+
+\begin{proof}
+$ $\\(1) On utilise la formule de Rodrigues, $ D=\dfrac{d}{dt}$. On a:
+\begin{align*}
+D^{n+1}(e^{-t^{2}}) & = D^{n}(-2te^{-t^{2}})\\
+& = -2tD^{n}(e^{-t^{2}})-2nD^{n-1}(e^{-t^{2}})
+\end{align*}
+En multipliant l'égalité par $ (-1)^{n+1} $, on obtient le résultat.
+\\$ $\\(2) On a $ {H'}_{n}(t) = (-1)^{n}e^{t^{2}}D^{n+1}(e^{-t^{2}})+(-1)^{n}2te^{t^{2}}D^{n}(e^{-t^{2}})$, c'est a dire:
+\\$ {H'}_{n}(t) =-H_{n+1}(t)+2tH_{n}(t) $. En utilisant (1), on obtient 
+\begin{align*}
+{H'}_{n}(t) & = -2tH_{n}(t)+2nH_{n-1}(t)+2tH_{n}(t)\\
+& = 2nH_{n-1}(t)
+\end{align*}
+\end{proof}
+
+\bprop
+Équation différentielle
+\\Les polynômes $ H_{n} $ de Hermite sont solution de l'équation différentielle:
+$$y''-2xy'+2ny = 0$$
+\eprop
+
+\begin{proof}
+$ $\\
+On calcule aisément les coefficients de l'équation différentielle (théorème 2.3.1)
+\end{proof}
+
+\section{Polynômes de Tchebychev}
+Nous avons vu que les polynômes $T_{n}$ de Tchebychev sont orthogonaux sur l'intervalle $I=]-1, 1[$ pour la fonction poids $w(t)=\dfrac{1}{\sqrt{1-x^{2}}}$ et $Q=1-t^{2}$. 
+\\Les polynômes de Tchebychev sont les polynômes définis par la relation:
+\\$$ T_{n}(\cos \theta)=\cos (n\theta),\ \forall \theta \in \R \text{ soit }  T_{n}(x)=\cos (n\arccos(x)),\ \forall x \in ]-1, 1[ .$$
+\\$ $\\ L'identité trigonométrique $$2\cos m\theta cos n\theta=cos(m+n)\theta + \cos (m-n)\theta\ \ \ \ (1)$$
+a pour conséquence que $$\int_0^{\pi} {\cos m\theta \cos n\theta d\theta}=0 \text{ pour } m\neq n.$$
+Effectuons le changement de variable $x=\cos\theta$ et posons $T_n(x)=\cos n\theta$.
+\\L'équation précédente devient $$\int_{-1}^1{T_n(x)T_m(x)(1-x^2)^{1/2}dx}=0 \text{ pour } m \neq n.$$
+Les $T_n$ sont des polynômes en $x$. En effet, nous avons $T_0(x)=1, T_1(x)=x$ et l'identité (1) avec $n=1$  nous donne:
+\bprop
+Relation de récurrence
+\\La relation de récurrence pour les polynômes de Tchebychev est:
+$$T_{n+1}(t)=2tT_{n}(t)-T_{n-1}(t).$$
+\eprop
+
+\bprop
+Équation différentielle
+\\Les polynômes $ T_{n} $ de Tchebychev sont solution de l'équation différentielle:
+$$(1-t^{2})y''-ty'+n^{2}y=0$$
+\eprop
+\begin{proof}
+$ $\\
+On calcule aisément les coefficients de l'équation différentielle (théorème 2.3.1)
+\end{proof}
+
+\bprop
+Racines
+\\Les racines de $T_n$ sont les $t_{k,n}=\cos \left(\dfrac{(2k-1)\pi}{2n}\right)$, avec $1\leqslant k \leqslant n$
+\eprop
+\begin{proof}
+$ $\\On utilise la propriété caractéristique: $ T_{n}(\cos \theta)=\cos (n\theta),\ \forall \ \theta \in \R$.
+\\On a $\forall \theta \in \R$, $\cos (n\theta)=0$ si et seulement si $n\theta$ est de la forme $\dfrac{\pi}{2}+k\pi$, c'est a dire $\theta = \dfrac{k}{2n}+k\dfrac{\pi}{n}$ avec $k\in \Z$.
+\\On en déduit que pour tout $k\in \Z$, les $\cos \left(\dfrac{(2k+1)\pi}{2n}\right)$ sont des racines de $T_n$.
+\\On cherche maintenant combien de valeurs distinctes prennent les $\cos \left(\dfrac{(2k+1)\pi}{2n}\right)$.
+\\La fonction $\cos$ étant $2\pi$-périodique et paire, on peut l'étudier sur $\theta \in [0, \pi]$ soit $0\leqslant k \leqslant n-1$. Or, $\cos$ est strictement décroissante sur $[0, \pi]$, les $\cos \left(\dfrac{(2k+1)\pi}{2n}\right)$ avec $0\leqslant k \leqslant n-1$ sont distincts. On obtient ainsi $n$ racines de $T_n$.
+\\Comme $\deg T_n = n$ ce sont les seules racines de $T_n$
+\end{proof}
+
+\bprop
+Fonction génératrice
+$$\sum\limits_{n=0}^{+\infty}T_n(t)x^n = \dfrac{1-xt}{1-2xt+x^2}$$
+\eprop
+\begin{proof}
+$ $\\Considérons la relation de récurrence que suivent les polynômes Tchebychev, à savoir: $$T_0(t)=1\text{, } T_1(t)= t\text{, } T_n(t)=2tT_{n-1}(t)-T_{n-2}(x)$$.
+\\Multiplions par $x^n$ et sommons sur les $n$.Nous obtenons:
+\begin{align*}
+\sum\limits_{n=2}^{+\infty}T_n(t)x^n &=2t\sum\limits_{n=2}^{+\infty}T_{n-1}(t)x^n - \sum\limits_{n=2}^{+\infty}T_{n-2}(t)x^n\\
+&=2tx\sum\limits_{n=2}^{+\infty}T_{n-1}(t)x^{n-1} - x^2 \sum\limits_{n=2}^{+\infty}T_{n-2}(t)x^{n-2}
+\end{align*}
+Alors
+\begin{align*}
+\sum\limits_{n=0}^{+\infty}T_n(t)x^n - tx - 1 &=2xt\sum\limits_{n=1}^{+\infty}T_{n}(t)x^n - x^2 \sum\limits_{n=0}^{+\infty}T_{n}(t)x^n\\
+&=2tx\sum\limits_{n=0}^{+\infty}T_{n}(t)x^{n} -2tx - x^2 \sum\limits_{n=0}^{+\infty}T_{n}(t)x^{n}
+\end{align*}
+Donc
+$$1+tx-2tx=(1-2tx+t^2)\sum\limits_{n=0}^{+\infty}T_n(t)x^n$$
+C'est a dire
+$$\sum\limits_{n=0}^{+\infty}T_n(t)x^n=\dfrac{1-tx}{1-2xt+t^2}$$
+\end{proof}

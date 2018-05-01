@@ -1,0 +1,20 @@
+\chapter{Définition alternative des polynômes orthogonaux comme solutions d'un problème de Sturm-Liouville}
+Une importante classe des polynômes orthogonaux provient d'une équation différentielle de Liouville de la forme
+$$Q(x)f''+L(x)f'+\lambda f=0$$ où $Q$ est un polynôme quadratique donné et $L$ un polynôme linéaire donné. La fonction $f$ est inconnue, et la constante $\lambda$ est un paramètre.
+\\Une solution polynômiale est a priori envisageable pour une telle équation. Cependant, les solutions de cette équation différentielle ont des singularités, à moins que $\lambda$ ne prenne des valeurs spécifiques. La suite de ces valeurs $\lambda_0,\lambda_1,\lambda_2,\dots$ conduit a une suite de polynômes solution $P_0,P_1,P_2,\dots$ si l'une des assertions suivante est vérifiée:
+\begin{itemize}
+\item $Q$ est de degré 2 et a deux racines réelles distinctes, $L$ est linéaire et la racine de $L$ est située entre les racines de $Q$ et les termes de plus haut degré de $Q$ et $L$ ont le même signe.
+\item $Q$ est linéaire, $L$ est linéaire, les racines de $Q$ et $L$ sont différentes et les termes de plus haut degré de $Q$ et $L$ ont le même signe si la racine de $L$ est plus petite que celle de $Q$ ou inversement.
+\item $Q$ est un polynôme constant non nul, $L$ est linéaire et le terme de plus haut degré de $L$ est de signe opposé à celui de $Q$. 
+\end{itemize}
+Ces trois cas conduisent respectivement aux polynômes de Jacobi, de Laguerre et de Hermite.
+\\$ $\\Pour chacun de ces cas:
+\begin{itemize}
+\item[•] La solution est une suite de polynômes $P_0,P_1,P_2,\dots$, chaque $P_n$ étant de degré $n$ et correspondant au nombre $\lambda_n$.
+\item[•] L'intervalle d'orthogonalité $I$ est limitée par les racines de $Q$.
+\item[•] La racine de $L$ est a l'intérieur de $I$.
+\item[•] En notant $R(x)=e^{\int_I {\dfrac{L(t)}{Q(t)}dt}}$, les polynômes sont orthogonaux sous le poids \\$w(x)=\dfrac{R(x)}{Q(x)}$.
+\item[•] Le poids $w(x)$ doit être choisi positif sur l'intervalle (multiplier l'équation par $-1$ si nécessaire)
+\item[•] $w(x)$ ne peut pas s'annuler ou prendre une valeur infinie dans l'intervalle bien qu'il puisse le faire aux extrémités.
+\end{itemize} 
+$ $\\En raison de la constante d'intégration, la quantité $R(x)$ est définie à une constante multiplicative près.

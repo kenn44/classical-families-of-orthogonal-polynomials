@@ -1,0 +1,36 @@
+\documentclass[a4paper,11pt]{book}
+\input{preambule/preambule}
+\begin{document}
+\let\cleardoublepage\clearpage
+\frontmatter % d\'ebut des pages liminaires
+\pagestyle{front} %style des en-têtes pour cette partie
+%\input{page-de-couverture/page-de-couverture}%on cr\'ee la couverture
+\thispagestyle{empty}%pour la page de garde toute blanche
+\input{dedicaces/dedicaces}%no comment !
+\input{remerciements/remerciements}%no comment !
+
+\addcontentsline{toc}{chapter}{Sommaire}%ajout du sommaire dans le sommaire !
+\renewcommand{\contentsname}{Sommaire}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\input{introduction/introduction}
+
+\mainmatter% corps du document
+\pagestyle{main}%style des en-têtes pour cette partie 
+\input{chapitre1/chapitre1}
+\input{chapitre2/chapitre2}
+\input{chapitre3/chapitre3}
+
+%\cleardoublepage% le corps du document est termin\'e
+
+\appendix
+\pagestyle{back}
+\input{annexes/annexe1}
+\input{annexes/annexe2}
+
+\backmatter
+\input{conclusion/conclusion}
+\input{bibliographie/bibliographie}
+%\addcontentsline{toc}{chapter}{Bibliographie}
+%\input{page-de-couverture/quatrieme-de-couv}
+\end{document}

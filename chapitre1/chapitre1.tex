@@ -1,0 +1,276 @@
+\chapter{Pr\'{e}sentation g\'{e}n\'{e}rale des polyn\^{o}mes orthogonaux}
+
+\section{Espaces préhilbertiens}
+
+\subsection{Formes hermitiennes}
+Soit $ E $ un $\K$-espace vectoriel; $\K=\R$ ou $\C$.
+\bdfn
+$ $\\
+Une forme hermitienne sur $E$ est une application $ \displaystyle{ \phi: E \times E\longrightarrow \K }$ telle que:
+\begin{enumerate}
+\item $ \forall \alpha \in \K, \forall x \in E, \phi( \alpha x,y ) = \alpha \phi( x,y )$
+\item $ \forall x,y,z \in E, \phi( x+z,y ) = \phi( x,y ) + \phi( z,y )$
+\item $ \forall x,y \in E, \phi( y,x ) = \overline{\phi( x,y )}$
+\end{enumerate}
+$ $\\
+Dans le cas où $\K = \R$, une forme hermitienne est une forme bilinéaire symétrique.
+\edfn
+
+\bex
+$ $
+\begin{enumerate}
+\item Soient $E=\K^n, n$ entier naturel non nul, $X=(x_1,\dots,x_n)$ et $Y=(y_1,\dots,y_n)$ deux vecteurs de $E$. L'application $\phi$ définie par $$\phi(X,Y)=\sum\limits_{i=1}^n x_i \overline{y_i}$$ est une forme hermitienne sur $E$.
+\item Soient $E$ l'espace vectoriel des fonctions continues sur un segment $[a,b]$ de $\R$. L'application $\phi$ définie par $$\phi(f,g)=\int_a^b{ f(x)\overline{g(x)}\ dx}$$ est une forme hermitienne sur $E$.
+\end{enumerate}
+\eex
+
+\bdfn
+$ $
+\begin{enumerate}
+\item Soit $\phi$ une forme hermitienne sur $E$. On appelle noyau de $\phi$ le sous-ensemble défini par 
+$$\text{ker}\ \phi = \{x\in E/ \ \phi(x,y)=0, \forall y \in E \}.$$
+\item Une forme hermitienne est dite non dégénéré si son noyau est réduit au sous-espace nul; i.e si: 
+$$\phi(x,y)=0, \forall y \in E \Leftrightarrow x=0_E.$$
+\item Deux vecteurs $X$ et $Y$ de $E$ sont dits orthogonaux relativement à la forme hermitienne $\phi$ si:
+$$\phi(X,Y)=0.$$
+Si $A$ est un sous ensemble de $E$, l'orthogonal de $A$ est le sous ensemble $$A^\perp = \{x \in E/ \ \phi(x,y)=0, \forall y\in A\}.$$
+\item La forme hermitienne $\phi$ est dite positive (resp. définie positive) si:
+$$\forall X \in E, X \neq 0_E, \text{ on a } \phi(X,X) \geqslant 0 \text{ resp. } \phi(X,X)>0.$$
+\end{enumerate}
+\edfn
+
+\bdfn
+$ $\\
+On appelle produit scalaire sur $E$ toute forme hermitienne $ \phi$ définie positive (i.e positive et non dégénéré sur) $E$. Tout espace vectoriel muni d'un produit scalaire est appelé espace préhilbertien.
+\\On définit une norme $N$ sur $ E $ par $N(x) = \sqrt{\phi(x,x)}, \forall x \in E.$
+\edfn
+\bex
+$ $\\
+Les formes hermitiennes définies dans l'exemple 1.1.1 sont des produits scalaires.
+\eex
+$ $
+On appelle espace de Hilbert tout espace préhilbertien qui est complet relativement à la structure métrique définie par la norme associée au produit scalaire.
+\\\ul{Rappel}: Complet $\Leftrightarrow$ toute suite de Cauchy est convergente.
+\\$ $
+\\Dans toute la suite, un produit scalaire sera noté $\la\ ,\ \ra$, la norme associée $||\ ||$ si il n'y a pas d'ambiguïté et la distance associée $d(\ ,\ )$.
+
+\subsection{Projeté orthogonal}
+\bprop Proposition-Définition
+\\Soit $E$ un espace de Hilbert et $A$ un sous ensemble de $E$. Pour tout $x \in E$, il existe un unique élément $y\in A$ tel que: $$ d(x,A)=||x-y||.$$
+L'élément $y$ est appelé projeté orthogonal de $x$ sur $A$. L'application $P_A:E \longrightarrow A$ qui à tout élément de $E$ on associe son projeté orthogonal sur $A$ est appelée projection orthogonale sur $A$. 
+\eprop
+
+\bprop
+$ $\\
+Soit $E$ un espace de Hilbert, $A$ un sous ensemble de $E$ et $x\in E$. L'élément $y=P_A(x)$ est caractérisé par:
+\begin{enumerate}
+\item $y\in A$
+\item $\forall \ z \in A, \la x-y,z\ra=0.$
+\end{enumerate}
+\eprop
+
+\subsection{Bases hilbertiennes}
+\bdfn
+$ $\\On dit qu'une famille $(e_n)_{n\geqslant 1}$ est une base hilbertienne de $E$ si elle est orthonormée, c'est à dire:
+\begin{enumerate}
+\item $ \forall \ (i,j),\  i \neq j \Rightarrow \la e_i ,e_j \ra = 0 $
+\item $ \forall \ i \geqslant 1,\  || e_i ||=1 $ 
+\end{enumerate}
+et si elle est complète ou totale, c'est à dire que le sous-espace qu'elle engendre est dense dans $E$.
+\edfn
+
+\subsection{Méthode d'orthogonalisation de Gram-Schmidt}
+Soient $E$ un espace de Hilbert et $(e_n)_{n \geqslant 1}$ un système libre. On note $ E_n = Vect( e_1 , \dots, e_n)$ et on pose: $$ u_1 = e_1 \ \text{et}\ u_{n+1} = e_{n+1} - P_{E_n}(e_{n+1})$$
+
+\bprop
+$ $\\Le système $(u_n)_{n \geqslant 1}$ ainsi construit est orthogonal et $E_n=\text{Vect}(u_1, \dots, u_n )$.
+\eprop
+
+\begin{proof}
+$ $\\Soit $n\geqslant 1$.
+\begin{itemize}
+\item Pour $n=1$, la famille $(e_n)_{n \geqslant 1}$ étant libre, $e_1 \neq 0$, donc $u_1 = e_1$ est a lui seul une famille orthogonale qui convient.
+
+\item Supposons la propriété vraie jusqu'à l'ordre $n$. Posons $ E_n = \text{Vect}( e_1 , \dots, e_n)$ 
+\\On a $u_{n+1} \in E_n^ \perp $ par définition de la projection orthogonale (Proposition 1.1.1).
+\\Mais $E_n$ est engendré par $ u_1 , \dots, u_n $ par hypothèse, par conséquent \\$\la u_j,u_{n+1} \ra = 0, \forall j=1, \dots, n$.
+\\Par définition, $u_{n+1} \in E_{n+1}$ car $u_{n+1}= e_{n+1}+\sum\limits_{j=1}^n \lambda_j e_j$.
+\\On a $e_{n+1} = u_{n+1}+P_{E_n}(e_{n+1}) = u_{n+1}+\sum\limits_{j=1}^n \alpha_j u_j$.
+\\Ce qui prouve que le sous espace $E_{n+1}$ est engendré par engendré par $ u_1 , \dots, u_{n+1} $.
+ 
+\item Calcul de $u_{n+1}$
+\\D'après ce qui précède, on a: $u_{n+1}=e_{n+1}-\sum\limits_{j=1}^n \alpha_j u_j$.
+\\Il s'agit de calculer les coefficients $\alpha_j, j=1,\dots,n$. On a:
+\begin{align*}
+\la u_{n+1},e_j \ra &= \la e_{n+1},e_j \ra - \alpha_j ||e_j||^2 \\
+&=0, \ \forall \ j=1,\dots, n.
+\end{align*}
+D'où on obtient: $\alpha_j=\frac{ \sum \limits_{j=1}^{n}\la e_{n+1} , u_j \ra}{ || u_j ||^2}$
+\end{itemize}
+\end{proof}
+
+\section{Polynômes orthogonaux et leurs propriétés}
+
+\bdfn
+$ $\\
+Soit $I$ un intervalle de $\R$. On appelle fonction densité une fonction $w:I \longrightarrow \R$ mesurable, strictement positive et telle que: $$\forall n \in \N, \int_I{|x|^n w(x)\ dx} < +\infty $$
+\edfn
+
+$ $\\Soit $ I \subset \R $. On considère l'espace $L^2(I,d \lambda)=\{f:I \longrightarrow \R / \ f^2 \  \text{est}\ d \lambda \ \text{intégrable} \}$ où $d \lambda $ est une mesure absolument continue par rapport à la mesure de Lebesgue dont la fonction densité est continue et strictement positive sur $I$; i.e: $ d \lambda (x) = w(x)dx $. Munit du produit scalaire définit par $$ \la f,g \ra = \int_I{f(x)g(x) w(x) \ dx}, $$ $ L^2(I,d\lambda) $ est un espace de Hilbert.
+\\On voudrait construire sur $L^2(I,d\lambda)$ des bases hilbertiennes constituées uniquement de polynômes. Le procédé d'orthonormalisation de Gram-Schmidt assure l'existence d'une unique famille $ (P_n)_{n \in \N }$ de polynômes unitaires, deux à deux orthogonaux tel que \\$ \forall n \in \N, \deg{P_n} = n $.
+\\La méthode consistera a choisir la famille libre $(f_n)_n$ avec $f_n(x)=x^n, n \in \N$, à laquelle on applique le procédé d'orthonormalisation de Gram-Schmidt pour en faire une base hilbertienne de $L^2(I,d\lambda)$.  Cette famille sera appelé la famille des polynômes orthogonaux associés à $w$.
+\\Le choix de la famille $(X_n)_n$ vient du fait que cette famille est totale dans $L^2(I,w)$. Différents choix adéquats de l'intervalle $I$ et de la fonction $w$ permettront d'obtenir différentes familles orthonormées de polynômes orthogonaux.
+
+\bthm
+$ $\\
+Supposons qu'il existe un réel $r$ tel que $\displaystyle{\int_I{e^{r |x|}w(x)dx}<+\infty}$. Alors la suite de polynômes orthonormés associés à $w$ forme une base de $L^2(I,d\lambda)$.
+\ethm
+
+\bprop
+$ $\\
+On peut toujours écrire un polynôme quelconque $ q_n $ de degré $n$ comme d'une combinaison linéaire de $P_k,\ k=0,\dots,n$. $$q_n(x)=\sum\limits_{k=0}^n a_k P_k(x),\ \ a_0,a_1,\dots,a_n \ \in \R.$$
+\eprop
+
+\bprop
+$ $\\
+Soit  $ q_k $ un polynôme quelconque de degré $k$, $k=1,\dots,n-1$. Alors: $$ \la q_k,P_n \ra = 0.$$
+\eprop
+$ $\\$ $\\Dans la suite de cette section l'intervalle considéré sera $I=[a,b]$.
+\bprop
+$ $\\On suppose que $[a,b]$ est symétrique par rapport à l'origine et que la fonction densité $w$ est paire. Alors $P_n$ a la parité de $n$ c'est à dire, pour tout $ n \in \N $ et pour tout $ x \in [a,b]$ on a: $P_n(-x)=(-1)^n P_n(x)$.
+\eprop
+
+\begin{proof}
+$ $\\
+Soient $a_0,a_1,\dots,a_n \ \in \R$ et $\alpha_1,\alpha_2,\dots,\alpha_n\ \in \R$.
+\\Supposons $P_n(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$.
+\\Alors $P_n(-x)=(-1)^n a_n x^n+(-1)^{n-1} a_{n-1} x^{n-1}+\cdots \phantom{1111} (1)$.
+\\D'autre part,on sait que $P_n(-x)$ peut s'écrire:
+\begin{align*}
+P_n(-x)&=\alpha_n P_n(x)+\alpha_{n-1}P_{n-1}(x)+\cdots+\alpha_0 P_0(x) \phantom{1111} (2)\\
+&=\alpha_n a_n x^n+\cdots+\alpha_{n-1}P_{n-1}+\cdots+\alpha_0 P_0(x) \phantom{1111} (3)
+\end{align*}
+En égalisant (1) et (3) on obtient:
+$$a_n(-1)^n=\alpha_n a_n \Longrightarrow \alpha_n=(-1)^n \phantom{1111} (4)$$
+De plus: $\la P_n(-x),P_{n-1}(x) \ra=\alpha_{n-1}||P_{n-1}||^2=0$
+\\Il s'en suit que $\alpha_{n-1}=0$ car $||P_{n-1}||^2 \neq 0$.
+\\En répétant la même opération avec $P_{n-2}(x),\dots,P_0(x)$ on a $$\alpha_0=\alpha_1=\cdots=\alpha_{n-1}=0.$$
+Alors (2) devient $ P_n(-x)= \alpha_n P_n(x)$
+\\Il s'en suit d'après (4) que $ P_n(-x)=(-1)^n P_n(x)$.   
+\end{proof}
+
+
+\subsection{Formule de récurrence et formule de Darboux Christoffel}
+
+\bthm
+Formule de récurrence
+\\Soit $k_n$ le coefficient directeur de $P_n$.
+\\ Les polynômes $P_n$ satisfont la formule de récurrence:
+$$ P_{n+1}(x)= (A_n x+B_n)P_n(x) - C_n P_{n-1}(x),\ n \geqslant 1 $$
+où $ A_n,\ B_n,\ C_n$ sont les constantes suivantes:
+$$ A_n = \dfrac{k_{n+1}}{k_n}, \ B_n = -A_n \dfrac{\la x P_n, P_n \ra}{\la P_n, P_n \ra}, \ C_n=A_n \dfrac{\la x P_n, P_{n-1} \ra}{\la P_{n-1}, P_{n-1} \ra} .$$ 
+\ethm
+
+\begin{proof}
+$ $
+\\Considérons le polynôme $P_{n+1}(x)- A_n x P_n(x)$. De la définition de la constante $A_n$, nous voyons que les termes en $x^{n+1}$ s'annulent et donc que ce polynôme est de degré au plus  $n$. 
+
+Il peut donc s'écrire sous la forme $$P_{n+1}(x)-x A_n P_n(x)= a_n P_n(x)+ \cdots + a_0 P_0(x)\ \text{où} \ a_o, \ldots,\ a_n \ \text{sont des constantes.}$$
+
+La valeur de chaque $a_j$ peut être trouvée en prenant le produit scalaire de cette expression avec le $P_j$ correspondant. Pour $ 0 \leqslant j < n-1$, on a:
+
+\begin{align*}
+\la P_{n+1}(x)- A_n x P_n(x),P_j(x) \ra &= \la P_{n+1}(x),P_j(x) \ra - A_n \la x P_n(x),P_j(x) \ra \\
+&= \la P_{n+1}(x),P_j(x) \ra - A_n \la P_n(x),xP_j(x) \ra \\
+&= 0
+\end{align*}
+
+car les degrés de $P_j$ et $xP_j$ sont strictement inférieurs au degré de $P_n$. 
+\\Or $\la P_{n+1}(x)- A_n x P_n(x),P_j(x) \ra = a_j \la P_j(x),P_j(x) \ra$, par suite $a_j=0$.
+\\D'où $P_{n+1}(x)-x A_n P_n(x)= a_n P_n(x) + a_{n-1} P_{n-1}(x)$.
+\\Pour $j = n-1$, on obtient
+\begin{align*}
+\la P_{n+1}(x)- A_n x P_n(x),P_{n-1}(x) \ra &= \la P_{n+1}(x),P_{n-1}(x) \ra - A_n \la x P_n(x),P_{n-1}(x) \ra \\
+&= - A_n \la xP_n(x),P_{n-1}(x) \ra
+\end{align*}
+Par suite $- A_n \la P_n(x),xP_{n-1}(x) \ra = a_{n-1} \la P_{n-1}(x),P_{n-1}(x)$,
+$$\Rightarrow \  a_{n-1}= -A_n \dfrac{\la x P_n, P_{n-1} \ra}{\la P_{n-1}, P_{n-1} \ra}\equiv C_n$$.
+\\De même, pour $j = n$; on obtient $a_{n}= -A_n \dfrac{\la x P_n, P_n \ra}{\la P_n, P_n \ra}\equiv B_n$.
+\end{proof}
+
+\brmq
+$C_n=\dfrac{A_n}{A_{n-1}}$.
+\\On sait que $\la x P_n, P_{n-1} \ra=\la P_n, xP_{n-1} \ra$.
+\begin{align*}
+xP_{n-1} &= x(k_{n-1}x^{n-1}+\cdots+k_0) \\
+         &=k_{n-1}x^n+\cdots+k_0x \\
+         &=\dfrac{k_{n-1}}{k_n}(k_n x^n+\cdots+\dfrac{k_0 k_n}{k_{n-1}}x)\\
+         &=\dfrac{1}{A_{n-1}}(P_n+K_{n-1}) \text{ avec } K_{n-1} \text{ un polynôme de degré }n-1\\
+\text{Par suite, }\la P_n, xP_{n-1} \ra &=\dfrac{1}{A_{n-1}} \la P_n,P_n+K_{n-1} \ra \\
+                      &=\dfrac{1}{A_{n-1}}(\la P_n,P_n\ra + \la P_n,K_{n-1} \ra)\\
+                      &=\dfrac{1}{A_{n-1}}\la P_n,P_n\ra
+\end{align*}
+\ermq
+
+\bthm
+Formule de Darboux-Chritoffel
+\\On a les formules suivantes pour $x \neq y$:
+\begin{enumerate}
+\item $K_n(x,y)= \sum\limits_{k=0}^n P_k(x)P_k(y)=\dfrac{k_n}{k_{n+1}} [\dfrac{P_n(y)P_{n+1}(x)-P_n(x)P_{n+1}(y)}{x-y}] $
+\item $ K_n(x,x) = \sum\limits_{k=0}^n {P_k(x)}^2 = \dfrac{k_n}{k_{n+1}}[P_n(x)P'_{n+1}(x)-P'_n(x)P_{n+1}(x)]\geqslant 0$
+\end{enumerate}
+Les fonctions $K_n$ sont appelées noyaux de Christoffel.
+\ethm
+
+\begin{proof}
+$ $
+\begin{enumerate}
+\item L'identité $1$ découle facilement de la formule de récurrence.
+$$P_k(y)P_{k+1}(x)-P_k(x)P_{k+1}(y)=[(A_k x+B_k)P_k(x)- C_k P_{k-1}(x)]P_k(y)-[(A_k y+B_k)P_k(y) - C_k P_{k-1}(y)]P_k(x)$$
+$$=A_k(x-y)P_k(x)P_k(y)+C_k[P_{k-1}(x)P_k(y)-P_{k-1}(y)]P_k(x)]$$
+Ainsi on a,
+$$ \dfrac{1}{A_k}[\dfrac{P_k(y)P_{k+1}(x)-P_k(x)P_{k+1}(y)}{x-y}]=P_k(x)P_k(y)+\dfrac{C_k}{A_k}[\dfrac{P_{k-1}(x)P_k(y)-P_{k-1}(y)]P_k(x)}{x-y}].$$
+Or $\dfrac{C_k}{A_k}=\dfrac{1}{A_{k-1}}$, posons $U_{k+1}=\dfrac{1}{A_k}[\dfrac{P_k(y)P_{k+1}(x)-P_k(x)P_{k+1}(y)}{x-y}]$.
+\\$ $
+\\On a $U_{k+1}-U_k=P_k(x)P_k(y)$.
+\\En faisant la somme pour $k$ allant de $1$ à $n$: $$\sum\limits_{k=1}^n P_k(x)P_k(y)=\dfrac{1}{k_{A_{n+1}}} [\dfrac{P_n(y)P_{n+1}(x)-P_n(x)P_{n+1}(y)}{x-y}]-P_0(x)P_0(y)$$.
+\\D'où $\displaystyle{\sum\limits_{k=0}^n P_k(x)P_k(y)=\dfrac{k_n}{k_{n+1}} [\dfrac{P_n(y)P_{n+1}(x)-P_n(x)P_{n+1}(y)}{x-y}]}$.
+\item 
+$$\dfrac{P_n(y)P_{n+1}(x)-P_n(x)P_{n+1}(y)}{x-y}=\dfrac{P_n(y)P_{n+1}(x)-P_n(x)P_{n+1}(y)+P_n(x)P_{n+1}(x)-P_n(x)P_{n+1}(x)}{x-y}$$
+$$=P_n(x)[\dfrac{P_{n+1}(x)-P_{n+1}(y)}{x-y}]-P_{n+1}(x)[\dfrac{P_n(x)-P_n(y)}{x-y}].$$
+Il suffit de passer à la limite quand $y$ tend vers $x$ de l'identité $1$ pour avoir le résultat.
+\end{enumerate}
+\end{proof}
+
+\subsection{Les zéros des polynômes orthogonaux}
+\bthm
+Pour $ n \in \N^* $, les racines de $P_n$ sont simples et sont contenus dans $[a,b]$.
+\ethm
+
+\begin{proof}
+$ $ \\
+Soit $ m \geqslant 0$ le nombre de zéros de $P_n$ qui soient réels et dans $[a,b]$. Le théorème fondamental de l'algèbre assure que $ m \leqslant n $. 
+\\Soit donc $\phi = \{x_1,x_2, \dots,\ x_m \}$ l'ensemble potentiellement vide des dits zéros de $P_n$. 
+\\Soit de plus le polynôme $S_n=(x-x_1)(x-x_2) \cdots (x-x_m)$, (un produit vide vaut $1$).
+\\Ce polynôme possède les mêmes propriétés que $P_n$ dans $[a,b]$, donc le produit $S(x)P_n(x)$ garde un signe constant sur $[a,b]$ et s'annule en chaque $x_i,\ i=1,\dots,m$. Il en est de même pour le produit $S(x)P_n(x)w(x)$, car $w(x)$ est positif sur $[a,b]$.
+\\Ainsi, $\la S,P_n \ra \neq 0$ car nous intégrons une fonction non identiquement nulle qui garde un signe constant, or $P_n$ est orthogonal à tout les polynômes de degré inférieur à $n$; il s'en suit que $m \geqslant n$. On a donc $m=n$, d'où le résultat.
+\end{proof}
+
+\bthm
+$ $\\
+Les polynômes $P_n$ et $P_{n+1}$ n'ont pas de racines en communs et de plus les racines de $P_n$ et $P_{n+1}$ sont alternées.
+\ethm
+
+\begin{proof}
+$ $\\
+Si $P_n$ et $P_{n+1}$ avaient un zéro en commun, $x_0$, ce serait aussi le zéro de $P_{n-1}$.
+\\En faisant une itération, on obtiendrait $0=P_{n+1}(x_0)=P_n(x_0)=P_{n-1}(x_0)=\cdots=P_0(x_0)=k_0$, ce qui est absurde car $k_0\neq 0$.
+\\$ $
+\\Nous avons vu que $ K_n(x,x) = \dfrac{k_n}{k_{n+1}}[P_n(x)P'_{n+1}(x)-P'_n(x)P_{n+1}(x)]\geqslant 0$.
+\\Soient donc deux zéros consécutifs $\alpha,\beta $ de $P_{n+1}$. 
+\\Comme ils sont consécutifs, $P'_{n+1}(\alpha)$ et $P'_{n+1}(\beta)$ doivent être de signes opposés.
+\\Par suite on a, d'après le noyau:
+$P_n(\alpha)P'_{n+1}(\alpha) \geqslant 0,P_n(\beta)P'_{n+1}(\beta) \geqslant 0$.
+\\Il suit que $P_n(\alpha)$ et $P_n(\beta)$ sont de signes opposés et donc que $P_n$ a un zéro dans $[\alpha,\beta]$ par le théorème des valeurs intermédiaires.
+\\ On montre de même que $P_{n+1}$ s'annule au moins une fois entre deux zéros de $P_n$.
+\end{proof}
