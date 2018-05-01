@@ -1,5 +1,9 @@
+## Studies of some classical families of orthogonal polynomials
 # Étude de quelques familles classiques de polynômes orthogonaux
-# Studies of some classical families of orthogonal polynomials
+
+[![DOWNLOAD](https://img.shields.io/github/downloads-pre/atom/atom/latest/total.svg?style=for-the-badge)](https://github.com/kenn44/classical-families-of-orthogonal-polynomials/raw/master/notrem%C3%A9moire.pdf)
+Link Beamer
+Link Errata
 
 Les polynômes orthogonaux sont un sujet d’étude pour les mathématiciens depuis des décennies. À titre d’exemple, Adrien-Marie Legendre en était arrivé dès le XIX e à considérer la suite de polynômes auxquelles son nom est maintenant associé (les polynômes de Legendre) dans le cadre de ses calculs concernant la mécanique céleste. Depuis cette époque jusque aujourd’hui, la théorie concernant ces polynômes n’a cessé de se développer en précision et aussi en importance avec d’autres applications dans différents domaines. En effet les polynômes orthogonaux sont utiles en physique mathématiques lors de la résolution de certaines équations aux dérivées partielles (Laplace, Schrödinger) par la méthode de séparation des variables. Aussi, en analyse numérique, avec l’avènement des ordinateurs, ils sont un des outils d’approximation et d’encodage-décodage.
 
