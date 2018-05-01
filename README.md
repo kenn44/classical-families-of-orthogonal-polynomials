@@ -2,8 +2,8 @@
 # Étude de quelques familles classiques de polynômes orthogonaux
 
 [![DOWNLOAD](https://img.shields.io/github/downloads-pre/atom/atom/latest/total.svg?style=for-the-badge)](https://github.com/kenn44/classical-families-of-orthogonal-polynomials/raw/master/notrem%C3%A9moire.pdf)
-Link Beamer
-Link Errata
+[![DOWNLOAD](https://img.shields.io/badge/Link-Beamer-brightgreen.svg)](https://github.com/kenn44/classical-families-of-orthogonal-polynomials-beamer/raw/master/beamerm%C3%A9moire.pdf)
+[![DOWNLOAD](https://img.shields.io/badge/Link-Errata-brightgreen.svg)](https://github.com/kenn44/classical-families-of-orthogonal-polynomials-errata/raw/master/errata.pdf)
 
 Les polynômes orthogonaux sont un sujet d’étude pour les mathématiciens depuis des décennies. À titre d’exemple, Adrien-Marie Legendre en était arrivé dès le XIX e à considérer la suite de polynômes auxquelles son nom est maintenant associé (les polynômes de Legendre) dans le cadre de ses calculs concernant la mécanique céleste. Depuis cette époque jusque aujourd’hui, la théorie concernant ces polynômes n’a cessé de se développer en précision et aussi en importance avec d’autres applications dans différents domaines. En effet les polynômes orthogonaux sont utiles en physique mathématiques lors de la résolution de certaines équations aux dérivées partielles (Laplace, Schrödinger) par la méthode de séparation des variables. Aussi, en analyse numérique, avec l’avènement des ordinateurs, ils sont un des outils d’approximation et d’encodage-décodage.
 
@@ -42,3 +42,5 @@ Les familles de polynômes vérifient souvent certaines relations de récurrence
 La motivation de ce mémoire était de présenter de façon rigoureuse la théorie des polynômes orthogonaux. Dans ce but, nous avons introduit le sujet par l’intermédiaire de la méthode d’orthogonalisation de Gram-Schmidt. Nous avons ensuite décortiqué certaines propriétés de base desdits polynômes, et finalement, nous avons abordé les applications.
 Ceci est sans parler des sujets que nous n’avons pas abordé du tout, mentionnons la théorie des mesures secondaires, ou encore l’utilisation d’ensembles de polynômes dits « biorthogonaux » en codage et décodage de signaux.
 Les objets en apparence simples mais pleins de potentiels que sont les polynômes sont encore étudiés sous plusieurs angles. Il est donc justifié de croire que la théorie continuera encore de se développer et de donner des applications intéressantes.
+
+*September 2016*
